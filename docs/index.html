@@ -9,6 +9,19 @@
   <script>
     // when user visits page, get URL parameters and send them to Google Forms
     // https://docs.google.com/forms/d/e/1FAIpQLSdvDMw0ODFSSdcgzhQsKDdg8P6d9tTytaovjfh1pG-_0WPmyw/viewform?usp=pp_url&entry.1253396703=7
+    const urlParams = new URLSearchParams(window.location.search);
+    const entryValue = urlParams.get('entry.1253396703');
+    if (entryValue) {
+      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdvDMw0ODFSSdcgzhQsKDdg8P6d9tTytaovjfh1pG-_0WPmyw/viewform?usp=pp_url';
+      fetch(formUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `entry.1253396703=${encodeURIComponent(entryValue)}`,
+      });
+    }
   </script>
   <body> 
     <div class="container">
