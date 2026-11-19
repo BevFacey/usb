@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+}
+h1 {
+    font-size: xx-large;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 160px;
+}
+
+a {
+    display: inline-block;
+    animation: slight-shake 1.2s ease-in-out infinite;
+}
+
+@keyframes slight-shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px) rotate(-0.5deg);
+    }
+    75% {
+        transform: translateX(2px) rotate(0.5deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    a {
+        animation: none;
+    }
+}
